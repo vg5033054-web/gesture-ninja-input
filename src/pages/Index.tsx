@@ -1,12 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Hero from "@/components/Hero";
+import CameraFeed from "@/components/CameraFeed";
+import HowItWorks from "@/components/HowItWorks";
+import TeamSection from "@/components/TeamSection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Hero />
+      <CameraFeed />
+      <HowItWorks />
+      <TeamSection />
+      
+      {/* Footer */}
+      <footer className="py-8 px-4 border-t border-border">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-sm text-muted-foreground">
+            © 2024 Gesture Control Interface. Built with innovation and passion.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
