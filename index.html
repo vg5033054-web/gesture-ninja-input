@@ -1,24 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gesture Control Interface | Control Your Computer with Hand Gestures</title>
-    <meta name="description" content="Revolutionary gesture-controlled mouse and keyboard system using advanced camera tracking. Control your computer naturally with hand gestures." />
-    <meta name="author" content="Gesture Control Team" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-    <meta property="og:title" content="Gesture Control Interface | Control Your Computer with Hand Gestures" />
-    <meta property="og:description" content="Revolutionary gesture-controlled mouse and keyboard system using advanced camera tracking" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    .login-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: #1e293b;
+      color: #f8fafc;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border: 2px solid #38bdf8;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #38bdf8;
+      color: #0f172a;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .extra {
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .extra a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .extra a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="home.html" method="post">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+
+      <div class="extra">
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+
+</body>
 </html>
