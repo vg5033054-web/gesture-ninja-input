@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login → Open Resume</title>
+  <style>
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#071027);color:#e6eef6}
+    .card{width:360px;background:rgba(255,255,255,0.03);padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+    h2{color:#38bdf8;text-align:center;margin:0 0 16px}
+    label{display:block;color:#cbd5e1;margin:10px 0 6px;font-weight:600}
+    input{width:100%;padding:10px;border-radius:8px;border:none;background:#0f1724;color:#e6eef6;font-size:15px}
+    input:focus{outline:2px solid rgba(6,182,212,0.15)}
+    button{width:100%;padding:10px;border-radius:8px;border:none;margin-top:14px;background:#06b6d4;color:#022;font-weight:800;cursor:pointer}
+    .msg{margin-top:10px;font-size:14px;color:#ffb4b4;display:none}
+    .hint{margin-top:8px;color:#94a3b8;font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="card" role="form" aria-label="Login form">
+    <h2>Login</h2>
+    <form id="loginForm" autocomplete="off">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" placeholder="Enter username" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Enter password" required>
+
+      <button type="submit">Submit</button>
+      <div id="msg" class="msg" role="status"></div>
+      <div class="hint">For demo use: <strong>vikas_gupta</strong> / <strong>2006</strong></div>
+    </form>
+  </div>
+
+  <script>
+    // Hardcoded credentials (demo). Change if needed.
+    const DEMO_USERNAME = 'vikas_gupta';
+    const DEMO_PASSWORD = '2006';
+    const RESUME_PATH = 'assets/resume.pdf'; // change to your path or hosted URL
+
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('msg');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      msg.style.display = 'none';
+
+      const username = form.username.value.trim();
+      const password = form.password.value.trim();
+
+      if(username === '' || password === '') {
+        showMessage('Please enter both username and password.');
+        return;
+      }
+
+      if(username === DEMO_USERNAME && password === DEMO_PASSWORD) {
+        // Successful login — open resume in new tab
+        // For some browsers, window.open might be blocked if not triggered by user gesture;
+        // since this is in a submit handler invoked by user click, it should work.
+        window.open(RESUME_PATH, '_blank');
+        // Optional: show success message or redirect current page
+        showMessage('Credentials correct — opening resume...', false);
+        // If you want to redirect in same tab after a short delay, uncomment below:
+        // setTimeout(()=> window.location.href = 'dashboard.html', 1500);
+      } else {
+        showMessage('Invalid username or password. Try again.');
+      }
+    });
+
+    function showMessage(text, isError = true){
+      msg.style.display = 'block';
+      msg.textContent = text;
+      msg.style.color = isError ? '#ffb4b4' : '#b7f5d4';
+    }
+  </script>
+</body>
+</html>
