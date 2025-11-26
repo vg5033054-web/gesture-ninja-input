@@ -27,16 +27,14 @@ const teamMembers = [
 
 const TeamSection = () => {
   return (
-    <section className="py-20 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section className="py-20 px-4 bg-gradient-to-b from-muted/30 to-background">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-            Meet Our Team
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-gradient">
+            Our Team
           </h2>
           <p className="text-lg text-muted-foreground">
-            The brilliant minds behind Gesture Control Interface
+            Passionate individuals working to raise awareness about Delhi's air quality
           </p>
         </div>
 
@@ -44,13 +42,13 @@ const TeamSection = () => {
           {teamMembers.map((member, index) => (
             <Card 
               key={index} 
-              className="p-6 bg-gradient-card backdrop-blur-sm border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-card group"
+              className="p-6 bg-white border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl group"
             >
               <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-3xl font-bold text-primary group-hover:scale-110 transition-transform">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-3xl font-display font-bold text-primary group-hover:scale-110 transition-transform">
                   {member.name.charAt(0)}
                 </div>
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                <h3 className="text-xl font-display font-semibold mb-1">{member.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{member.role}</p>
                 <Button 
                   variant="outline" 

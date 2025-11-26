@@ -1,55 +1,63 @@
 import { Button } from "@/components/ui/button";
-import { Hand, Camera, Zap } from "lucide-react";
+import { Wind, AlertTriangle, TrendingDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-50" />
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <div className="flex justify-center gap-4 mb-6 animate-pulse-glow">
-          <Hand className="w-12 h-12 text-primary" />
-          <Camera className="w-12 h-12 text-secondary" />
-          <Zap className="w-12 h-12 text-accent" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-4 py-20">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-orange-50" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto text-center">
+        <div className="flex justify-center gap-6 mb-8 animate-fade-in">
+          <div className="p-4 rounded-full bg-primary/10">
+            <Wind className="w-10 h-10 text-primary" />
+          </div>
+          <div className="p-4 rounded-full bg-secondary/10">
+            <AlertTriangle className="w-10 h-10 text-secondary" />
+          </div>
+          <div className="p-4 rounded-full bg-accent/10">
+            <TrendingDown className="w-10 h-10 text-accent" />
+          </div>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient glow">
-          Gesture Control Interface
+        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-foreground animate-slide-up">
+          Delhi Air Pollution
         </h1>
         
-        <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-          Control your computer with simple hand gestures using advanced camera tracking technology
+        <p className="text-xl md:text-2xl mb-4 text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          Track Real-Time Air Quality & Discover Solutions
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-primary hover:bg-primary-glow text-primary-foreground font-semibold shadow-glow">
-            Try Demo
+        <p className="text-base md:text-lg mb-10 text-muted-foreground max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          Understanding Delhi's air pollution crisis is the first step toward breathing cleaner air. 
+          Explore data, causes, effects, and actionable solutions.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+            Check AQI Now
           </Button>
           <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-            Learn More
+            Learn Solutions
           </Button>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="p-6 rounded-xl bg-gradient-card backdrop-blur-sm border border-border">
-            <Hand className="w-10 h-10 text-primary mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Natural Gestures</h3>
-            <p className="text-sm text-muted-foreground">Intuitive hand movements for seamless control</p>
+        {/* Stats Grid */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="p-8 rounded-2xl bg-white border-2 border-border shadow-lg hover:shadow-xl transition-all animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="text-4xl font-display font-bold text-danger mb-2">350+</div>
+            <div className="text-sm font-medium text-muted-foreground">Average AQI in Winter</div>
+            <div className="text-xs text-muted-foreground mt-1">Hazardous levels</div>
           </div>
-          <div className="p-6 rounded-xl bg-gradient-card backdrop-blur-sm border border-border">
-            <Camera className="w-10 h-10 text-secondary mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Real-Time Tracking</h3>
-            <p className="text-sm text-muted-foreground">Advanced camera technology with zero latency</p>
+          <div className="p-8 rounded-2xl bg-white border-2 border-border shadow-lg hover:shadow-xl transition-all animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <div className="text-4xl font-display font-bold text-secondary mb-2">20M+</div>
+            <div className="text-sm font-medium text-muted-foreground">People Affected</div>
+            <div className="text-xs text-muted-foreground mt-1">In Delhi NCR region</div>
           </div>
-          <div className="p-6 rounded-xl bg-gradient-card backdrop-blur-sm border border-border">
-            <Zap className="w-10 h-10 text-accent mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Lightning Fast</h3>
-            <p className="text-sm text-muted-foreground">Instant response for smooth interaction</p>
+          <div className="p-8 rounded-2xl bg-white border-2 border-border shadow-lg hover:shadow-xl transition-all animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="text-4xl font-display font-bold text-primary mb-2">15μg/m³</div>
+            <div className="text-sm font-medium text-muted-foreground">WHO Safe Limit</div>
+            <div className="text-xs text-muted-foreground mt-1">Delhi exceeds by 10x+</div>
           </div>
         </div>
       </div>

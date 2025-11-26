@@ -8,41 +8,33 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 25% 8%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 20% 12%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 20% 12%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 195 100% 50%;
-    --primary-foreground: 220 25% 8%;
-    --primary-glow: 195 100% 65%;
-
-    --secondary: 280 80% 60%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 15% 20%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 160 80% 45%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 25%;
-    --input: 220 15% 20%;
-    --ring: 195 100% 50%;
-
-    --radius: 0.75rem;
-
-    --gradient-hero: linear-gradient(135deg, hsl(195 100% 50% / 0.1), hsl(280 80% 60% / 0.1));
-    --gradient-card: linear-gradient(180deg, hsl(220 20% 15% / 0.8), hsl(220 20% 10% / 0.8));
-    --shadow-glow: 0 0 40px hsl(195 100% 50% / 0.3);
-    --shadow-card: 0 8px 32px hsl(195 100% 50% / 0.15);
+    --background: 0 0% 100%;
+    --foreground: 150 10% 15%;
+    --card: 0 0% 98%;
+    --card-foreground: 150 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 15%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 88% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --danger: 0 84% 50%;
+    --danger-foreground: 0 0% 100%;
+    --muted: 150 10% 95%;
+    --muted-foreground: 150 10% 45%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 150 10% 15%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 10% 90%;
+    --input: 150 10% 90%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+    --chart-1: 142 76% 36%;
+    --chart-2: 24 88% 50%;
+    --chart-3: 45 93% 47%;
+    --chart-4: 0 84% 50%;
+    --chart-5: 280 65% 60%;
   }
 }
 
@@ -50,44 +42,60 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-primary-glow to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
   }
 
-  .glow {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  .aqi-good {
+    @apply bg-gradient-to-br from-green-400 to-green-600 text-white;
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .aqi-moderate {
+    @apply bg-gradient-to-br from-yellow-400 to-yellow-600 text-white;
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  .aqi-poor {
+    @apply bg-gradient-to-br from-orange-400 to-orange-600 text-white;
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+  .aqi-unhealthy {
+    @apply bg-gradient-to-br from-red-400 to-red-600 text-white;
   }
 
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
-    }
-    50% {
-      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
-    }
+  .aqi-severe {
+    @apply bg-gradient-to-br from-purple-600 to-purple-900 text-white;
+  }
+
+  .aqi-hazardous {
+    @apply bg-gradient-to-br from-red-900 to-black text-white;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
   }
 }
